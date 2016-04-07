@@ -42,12 +42,13 @@ export default class Deck extends Component {
   static contextTypes = {
     styles: PropTypes.object,
     print: PropTypes.object,
-    history: PropTypes.object,
+    router: PropTypes.object,
     presenter: PropTypes.bool,
     export: PropTypes.bool,
     overview: PropTypes.bool,
     store: PropTypes.object,
-    slide: PropTypes.oneOfType([PropTypes.number, PropTypes.string])
+    slide: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+    basePath: PropTypes.string
   };
 
   constructor() {
@@ -113,11 +114,11 @@ export default class Deck extends Component {
   }
   _toggleOverviewMode() {
     const suffix = this.props.route.params.indexOf("overview") !== -1 ? "" : "?overview";
-    this.context.history.replaceState(null, `/${this.props.route.slide}${suffix}`);
+    this.context.router.replace(`${this.context.basePath}/${this.props.route.slide}${suffix}`);
   }
   _togglePresenterMode() {
     const suffix = this.props.route.params.indexOf("presenter") !== -1 ? "" : "?presenter";
-    this.context.history.replaceState(null, `/${this.props.route.slide}${suffix}`);
+    this.context.router.replace(`${this.context.basePath}/${this.props.route.slide}${suffix}`);
   }
   _getSuffix() {
     if (this.props.route.params.indexOf("presenter") !== -1) {
@@ -136,7 +137,7 @@ export default class Deck extends Component {
         lastSlide: slide || 0
       });
       if (this._checkFragments(this.props.route.slide, data.forward)) {
-        this.context.history.replaceState(null, `/${data.slide}${this._getSuffix()}`);
+        this.context.router.replace(`${this.context.basePath}/${data.slide}${this._getSuffix()}`);
       }
     }
   }
@@ -147,7 +148,7 @@ export default class Deck extends Component {
     });
     if (this._checkFragments(this.props.route.slide, false) || this.props.route.params.indexOf("overview") !== -1) {
       if (slide > 0) {
-        this.context.history.replaceState(null, `/${this._getHash(slide - 1)}${this._getSuffix()}`);
+        this.context.router.replace(`${this.context.basePath}/${this._getHash(slide - 1)}${this._getSuffix()}`);
         localStorage.setItem("spectacle-slide",
           JSON.stringify({slide: this._getHash(slide - 1), forward: false, time: Date.now()}));
       }
@@ -163,7 +164,7 @@ export default class Deck extends Component {
     });
     if (this._checkFragments(this.props.route.slide, true) || this.props.route.params.indexOf("overview") !== -1) {
       if (slide < this.props.children.length - 1) {
-        this.context.history.replaceState(null, `/${this._getHash(slide + 1) + this._getSuffix()}`);
+        this.context.router.replace(`${this.context.basePath}/${this._getHash(slide + 1) + this._getSuffix()}`);
         localStorage.setItem("spectacle-slide",
           JSON.stringify({slide: this._getHash(slide + 1), forward: true, time: Date.now()}));
       }

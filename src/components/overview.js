@@ -4,7 +4,7 @@ import Radium from "radium";
 @Radium
 export default class Overview extends Component {
   _slideClicked(index) {
-    this.context.history.replaceState(null, `/${this._getHash(index)}`);
+    this.context.router.replace(`${this.context.basePath}/${this._getHash(index)}`);
   }
   _getHash(slide) {
     let hash = slide;
@@ -73,5 +73,6 @@ Overview.propTypes = {
 
 Overview.contextTypes = {
   styles: PropTypes.object,
-  history: PropTypes.object
+  history: PropTypes.object,
+  basePath: PropTypes.string
 };

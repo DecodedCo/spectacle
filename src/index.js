@@ -1,6 +1,7 @@
 import Appear from "./components/appear";
 import BlockQuote from "./components/block-quote";
 import Cite from "./components/cite";
+import ChildSpectacle from "./components/child-spectacle";
 import CodePane from "./components/code-pane";
 import Code from "./components/code";
 import Deck from "./components/deck";
@@ -27,6 +28,7 @@ export {
   Appear,
   BlockQuote,
   Cite,
+  ChildSpectacle,
   CodePane,
   Code,
   Deck,

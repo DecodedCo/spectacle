@@ -1,15 +1,8 @@
 import React, { Component, PropTypes } from "react";
 
-import createBrowserHistory from "history/lib/createBrowserHistory";
-import createHashHistory from "history/lib/createHashHistory";
-
-import context from "../utils/context";
+import context from "../utils/child-context";
 import theme from "../themes/default";
 import { updateRoute } from "../actions";
-
-const history = process.env.NODE_ENV === "production" ?
-  createHashHistory() :
-  createBrowserHistory();
 
 export default class Controller extends Component {
   static propTypes = {
@@ -19,7 +12,8 @@ export default class Controller extends Component {
   };
 
   static contextTypes = {
-    router: PropTypes.object
+    router: PropTypes.object,
+    basePath: PropTypes.string
   };
 
   constructor(props) {
@@ -30,13 +24,13 @@ export default class Controller extends Component {
   }
   _updateRoute(location) {
     this.setState({
-      print: location.query.indexOf("print") !== -1
+      print: location.search.indexOf("print") !== -1
     }, () => {
       this.props.store.dispatch(updateRoute(location));
     });
   }
   componentDidMount() {
-    this.unlisten = this.router.listen(this._updateRoute.bind(this));
+    this.unlisten = this.context.router.listen(this._updateRoute.bind(this));
   }
   componentWillUnmount() {
     this.unlisten();
@@ -50,7 +44,8 @@ export default class Controller extends Component {
       styles: this.state.print ? styles.print : styles.screen,
       print: styles.print,
       store: this.props.store,
-      router: this.context.router
+      router: this.context.router,
+      basePath: this.context.basePath
     });
     return <Context />;
   }
