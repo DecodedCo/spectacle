@@ -1,6 +1,8 @@
 # Spectacle
 ReactJS based Presentation Library
 
+Adds ChildSpectacle component to run Spectacle as part of a larger app.
+
 [Spectacle Boilerplate](https://github.com/FormidableLabs/spectacle-boilerplate/)
 
 ## Contents
@@ -21,6 +23,7 @@ ReactJS based Presentation Library
 - [Tag API](#tag-api)
   - [Main Tags](#main-tags)
     - [Spectacle](#spectacle)
+    - [ChildSpectacle](#child-spectacle)
     - [Deck](#deck)
     - [Slide (Base)](#slide-base)
   - [Layout Tags](#layout-tags)
@@ -42,7 +45,7 @@ ReactJS based Presentation Library
     - [Table, TableRow, TableHeaderItem and TableItem (Base)](#table-tablerow-tableheaderitem-and-tableitem-base)
     - [Text (Base)](#text-base)
   - [Base Props](#base-props)
-- [Third Party Extensions] (#third-party) 
+- [Third Party Extensions] (#third-party)
 
 <!-- /MarkdownTOC -->
 
@@ -218,6 +221,17 @@ The Spectacle tag is the root level tag for your presentation. It handles routin
 |Name|PropType|Description|
 |---|---|---|
 |theme|React.PropTypes.object|Accepts a theme object for styling your presentation|
+
+<a name="child-spectacle"></a>
+#### ChildSpectacle
+
+The ChildSpectacle tag is the root level tag for your presentation. It handles integrates with a higher-component redux app to share, but keeps it's own store It supports the following props:
+
+|Name|PropType|Description|
+|---|---|---|
+|theme|React.PropTypes.object|Accepts a theme object for styling your presentation|
+|router|React.PropTypes.object|Accepts a react-router object (V >2.0.0)
+|basePath|React.PropTypes.string|Accepts string that is prepended to the urls generated
 
 <a name="deck"></a>
 #### Deck
