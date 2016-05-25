@@ -28,8 +28,8 @@ export default class Fullscreen extends Component {
   render() {
     const styles = {
       position: "absolute",
-      bottom: 20,
-      right: 20,
+      bottom: "20px",
+      right: "20px",
       opacity: 0,
       cursor: "pointer",
       transition: "300ms opacity ease",
