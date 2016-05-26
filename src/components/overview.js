@@ -18,8 +18,8 @@ export default class Overview extends Component {
     return this.props.slides.map((child, index) => {
       const style = {
         position: "relative",
-        width: `${window.innerWidth / 3}px`,
-        height: `${window.innerHeight / 3}px`,
+        width: window.innerWidth / 3,
+        height: window.innerHeight / 3,
         float: "left",
         transform: "scale(0.8)",
         border: "2px solid white",

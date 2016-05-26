@@ -9,7 +9,7 @@ export default class Text extends Component {
     this.resize = this.resize.bind(this);
     this.state = {
       scale: 1,
-      height: "16px"
+      height: 16
     };
   }
   componentDidMount() {
@@ -47,10 +47,10 @@ export default class Text extends Component {
         height: this.state.height
       },
       text: {
-        fontSize: "16px",
+        fontSize: 16,
         display: "block",
-        margin: "0px",
-        padding: "0px",
+        margin: "0",
+        padding: "0",
         lineHeight,
         transform: `scale(${this.state.scale})`,
         transformOrigin: "center top"

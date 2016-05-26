@@ -338,8 +338,8 @@ export default class Deck extends Component {
   render() {
     const globals = this.props.route.params.indexOf("export") !== -1 ? {
       body: Object.assign(this.context.styles.global.body, {
-        minWidth: "1100px",
-        minHeight: "850px",
+        minWidth: 1100,
+        minHeight: 850,
         overflow: "auto"
       }),
       ".spectacle-presenter-next .fragment": {
@@ -355,8 +355,8 @@ export default class Deck extends Component {
       deck: {
         backgroundColor: this.props.route.params.indexOf("presenter") !== -1 || this.props.route.params.indexOf("overview") !== -1 ? "black" : "",
         position: "absolute",
-        top: "0px",
-        left: "0px",
+        top: 0,
+        left: 0,
         width: "100%",
         height: "100%"
       },

@@ -60,7 +60,7 @@ export default class Presenter extends Component {
       top: "50%",
       left: "50%",
       transform: "translate(-50%, -50%)",
-      margin: "0px",
+      margin: 0,
       color: "white"
     };
     const child = slides[parseInt(slide) + 1];
@@ -108,7 +108,7 @@ export default class Presenter extends Component {
         top: "50%",
         transform: "translateY(-50%)",
         float: "left",
-        margin: "0px",
+        margin: 0,
         lineHeight: 1,
         display: "inline-block",
         fontSize: 28
@@ -118,7 +118,7 @@ export default class Presenter extends Component {
         top: "50%",
         transform: "translateY(-50%)",
         float: "right",
-        margin: "0px",
+        margin: 0,
         lineHeight: 1,
         display: "inline-block",
         fontSize: 28
@@ -136,8 +136,8 @@ export default class Presenter extends Component {
         width: "50%",
         height: "60%",
         border: "2px solid white",
-        padding: "20px",
-        margin: "20px",
+        padding: 20,
+        margin: 20,
         position: "relative"
       },
       next: {
@@ -145,8 +145,8 @@ export default class Presenter extends Component {
         width: "40%",
         height: "50%",
         border: "2px solid white",
-        padding: "20px",
-        margin: "20px",
+        padding: 20,
+        margin: 20,
         position: "relative"
       },
       notes: {

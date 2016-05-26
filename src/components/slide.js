@@ -93,8 +93,8 @@ const Slide = React.createClass({
     const styles = {
       outer: {
         position: this.props.route.params.indexOf("export") !== -1 ? "relative" : "absolute",
-        top: "0px",
-        left: "0px",
+        top: 0,
+        left: 0,
         width: "100%",
         height: "100%",
         display: "flex",
@@ -111,10 +111,10 @@ const Slide = React.createClass({
       },
       content: {
         flex: 1,
-        maxHeight: `${this.props.maxHeight || 700}px`,
-        maxWidth: `${this.props.maxWidth || 1000}px`,
+        maxHeight: this.props.maxHeight || 700,
+        maxWidth: this.props.maxWidth || 1000,
         transform: `scale(${this.state.contentScale})`,
-        padding: `${this.state.zoom > 0.6 ? this.props.margin || 40 : 10}px`
+        padding: this.state.zoom > 0.6 ? this.props.margin || 40 : 10
       }
     };
 

@@ -9,7 +9,7 @@ export default class Heading extends Component {
     this.resize = this.resize.bind(this);
     this.state = {
       scale: 1,
-      height: "16px"
+      height: 16
     };
   }
   componentDidMount() {
@@ -48,7 +48,7 @@ export default class Heading extends Component {
         height: this.state.height
       },
       text: {
-        fontSize: "16px",
+        fontSize: 16,
         display: "block",
         margin: "0",
         padding: "0",
